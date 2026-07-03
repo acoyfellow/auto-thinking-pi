@@ -34,7 +34,7 @@ The sections below are a condensed overview of the same material.
 
 ## Quick start (tutorial)
 
-Prerequisites: [Bun](https://bun.sh) ≥ 1.1, and a working Pi coding-agent install exposing the `@earendil-works/pi-coding-agent` extension host (currently tested against Pi `0.80.x`).
+Prerequisites: [Bun](https://bun.sh) ≥ 1.3, and a working Pi coding-agent install exposing the `@earendil-works/pi-coding-agent` extension host (currently tested against Pi `0.80.x`).
 
 ```sh
 git clone https://github.com/acoyfellow/auto-thinking-pi.git

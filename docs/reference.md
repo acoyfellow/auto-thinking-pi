@@ -37,7 +37,7 @@ Everything here is checked against the source in `src/heuristic.ts`,
   The extension only uses these as `import type`, and `src/types.ts`
   re-exports `ThinkingLevel` from `@earendil-works/pi-agent-core`
   (type-only).
-- `engines.bun`: `>=1.1.0`.
+- `engines.bun`: `>=1.3.0` (the committed text lockfile uses Bun's current lockfile format).
 
 ## Public API
 

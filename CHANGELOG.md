@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file. The format 
 - `test/cases.json` gains `heldOutHardKeywordBlind` — 12 prompts that match no `HARD_WORDS` or `DIFFICULTY_SIGNALS` atom (verified). New test asserts the classifier keeps them at `medium`+.
 - Two additional documented safe-over-thinking cases: `what is a race condition` and `rename foo to bar in security/auth.ts`.
 - `test/pi-conformance.test.ts` — compile-time and narrow-runtime conformance against the pinned Pi peer types (`ExtensionFactory`, `ExtensionAPI`, `InputEvent`, `ThinkingLevel`). Limitation stated explicitly: this does not boot Pi's real `ExtensionRunner` end-to-end.
-- CI matrix over Bun `1.1` and `1.3`; placeholder / personal-path grep gate.
+- CI on Bun `1.3`, matching the minimum version that can consume the committed lockfile; placeholder / personal-path grep gate.
 
 ## [0.0.1] - 2026-07-03
 

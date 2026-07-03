@@ -11,7 +11,7 @@ for the rationale behind the design see [`design.md`](./design.md).
 
 ## Prerequisites
 
-- [Bun](https://bun.sh) 1.1 or newer (`bun --version`). The `exports` map
+- [Bun](https://bun.sh) 1.3 or newer (`bun --version`). The `exports` map
   targets raw `.ts` files, so the classifier only imports cleanly from a
   Bun or Pi runtime; plain Node ESM would need a TS loader.
 - A working install of the Pi coding agent that exposes the
