@@ -1,0 +1,149 @@
+{
+	"hard": [
+		"fix the bug where users lose their session intermittently",
+		"why does this function return undefined sometimes",
+		"make the parser handle nested quotes correctly",
+		"the tests pass locally but fail in CI, figure out why",
+		"implement a rate limiter that survives worker restarts",
+		"the memory keeps growing, find and fix the leak",
+		"print all permutations of a set efficiently",
+		"get the auth flow working end to end across the three services",
+		"reduce the p99 latency on the checkout endpoint",
+		"handle the edge case where two requests arrive at the same instant",
+		"resolve the merge conflict in the ledger logic",
+		"the numbers don't add up in the billing report, trace it",
+		"refactor the auth module to fix the race condition across these 3 files",
+		"why does this deadlock under concurrency, prove the ordering",
+		"design a schema migration that is safe to run online",
+		"the websocket drops connections after 30 seconds, diagnose it",
+		"make this recursive function not blow the stack on large inputs",
+		"prove the invariant holds after every state transition",
+		"optimize the query, it's doing a full table scan",
+		"figure out why the cache returns stale data intermittently"
+	],
+	"medium": [
+		"add input validation to the signup form",
+		"write a function to parse ISO dates",
+		"add a retry with exponential backoff to the fetch call",
+		"convert this callback code to async/await",
+		"add pagination to the results endpoint",
+		"write tests for the calculator module",
+		"add a loading spinner while the data fetches",
+		"implement a debounce helper"
+	],
+	"trivial": [
+		"fix the typo in the header",
+		"rename foo to bar",
+		"what is a promise",
+		"print hello world",
+		"format this file",
+		"bump the version to 1.2.0",
+		"add a comment explaining this line",
+		"capitalize the button label",
+		"what is 2+2",
+		"list the files in src"
+	],
+	"heldOutHard": [
+		"the background job silently swallows errors, hunt it down",
+		"users report the export button hangs on files > 100MB",
+		"the connection pool leaks sockets under load",
+		"trace why the checksum mismatch appears only on weekends",
+		"the retry logic causes duplicate charges, fix it before payroll",
+		"the sort order is unstable across runs, why",
+		"correctly handle daylight-saving transitions in the scheduler",
+		"the CI test is flaky on the payment path, diagnose it",
+		"why does the same request return different results depending on region",
+		"figure out why events arrive out of order downstream",
+		"the pagination cursor sometimes skips a page, reproduce and fix",
+		"end to end signup fails when the email provider is slow"
+	],
+	"heldOutTrivial": [
+		"rename the variable count to total",
+		"format the JSON file with two-space indent",
+		"what is the current node version",
+		"add a comment above the helper explaining the return value",
+		"bump the version to 0.2.0",
+		"list the files under docs",
+		"uppercase the button label text"
+	],
+	"heldOutHardKeywordBlind": [
+		"oom",
+		"gc pauses",
+		"n+1 queries",
+		"cpu spikes at 3am",
+		"cascade of 500s",
+		"cross-region replication lag",
+		"heap fragmentation",
+		"segfault on shutdown",
+		"quorum lost",
+		"nodes drift",
+		"flushed buffer",
+		"tcp retransmits"
+	],
+	"adversarial": [
+		{
+			"prompt": "fix the typo",
+			"expectedMax": "low",
+			"note": "strong trivial marker (typo) must suppress the soft difficulty verb 'fix'"
+		},
+		{
+			"prompt": "rename foo to bar",
+			"expectedMax": "low",
+			"note": "canonical rename must stay trivial (short + strong trivial)"
+		},
+		{
+			"prompt": "hello world",
+			"expectedMax": "low",
+			"note": "canonical trivial two-word prompt"
+		},
+		{
+			"prompt": "add a comment explaining this line",
+			"expectedMax": "low",
+			"note": "explicit trivial phrase must not bleed into medium"
+		},
+		{
+			"prompt": "why?",
+			"expectedMin": "medium",
+			"note": "one-word hard signal must NOT be dampened by short-prompt penalty"
+		},
+		{
+			"prompt": "debug",
+			"expectedMin": "medium",
+			"note": "single hard word alone must clear the anti-under-think floor"
+		},
+		{
+			"prompt": "fix the auth flow",
+			"expectedMin": "medium",
+			"note": "keyword-free ambiguous imperative must hit the anti-under-think floor"
+		},
+		{
+			"prompt": "make it work",
+			"expectedMin": "medium",
+			"note": "vague imperative must default to medium via anti-under-think floor"
+		},
+		{
+			"prompt": "fix the typo in the concurrency doc",
+			"expectedMin": "medium",
+			"knownOverThink": true,
+			"note": "documented safe-over-thinking case: a HARD_WORD anywhere in the prompt overrides trivial context. See README 'Known limitations'."
+		},
+		{
+			"prompt": "rename the helper called debug",
+			"expectedMin": "medium",
+			"knownOverThink": true,
+			"note": "documented safe-over-thinking case: an identifier that looks like a HARD_WORD escalates the whole prompt. Not correctness-critical."
+		},
+		{
+			"prompt": "what is a race condition",
+			"expectedMin": "medium",
+			"knownOverThink": true,
+			"note": "documented safe-over-thinking case: a definitional lookup about a HARD_WORD is escalated because the classifier cannot cheaply distinguish topic-of-mention from topic-of-work. Not correctness-critical."
+		},
+		{
+			"prompt": "rename foo to bar in security/auth.ts",
+			"expectedMin": "medium",
+			"knownOverThink": true,
+			"note": "documented safe-over-thinking case: a HARD_WORD appearing in a file path escalates a mechanical rename. Not correctness-critical."
+		}
+	]
+}

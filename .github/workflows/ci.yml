@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    name: bun ${{ matrix.bun-version }} — bun run check
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Test the declared engines.bun minimum (1.1) AND the current stable
+        # (1.3), which is what most contributors actually run locally. Bun 1.1
+        # and 1.3 differ in test-runner and JSON-import behaviour, so both
+        # matter. See SF-7 in the review receipt.
+        bun-version: ["1.1", "1.3"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ matrix.bun-version }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: biome + tsc + tests
+        run: bun run check
+
+      - name: Placeholder / leak grep gate
+        # Guards against re-introducing the OWNER placeholder or leaking a
+        # personal path. Any hit fails the build. Only the workflow file itself
+        # is allowed to mention these patterns (in this gate). Explicit paths
+        # keep this cheap and reviewable. See MF-1 in the review receipt.
+        run: |
+          set -e
+          # OWNER placeholder guard: check the exact file set that ships or is
+          # user-facing. If a real "OWNER" string ever legitimately needs to
+          # exist in one of these files, adjust here explicitly.
+          if grep -RIn --exclude-dir=node_modules --exclude-dir=.git 'OWNER' package.json README.md docs; then
+            echo "OWNER placeholder present"; exit 1
+          fi
+          # Personal / absolute path guard: scan the whole repo except the
+          # workflow file itself (which necessarily mentions the pattern).
+          if grep -RIn --exclude-dir=node_modules --exclude-dir=.git --exclude='ci.yml' -E '/Users/|/home/[^/]+/(cloudflare|projects)' .; then
+            echo "personal path leaked"; exit 1
+          fi

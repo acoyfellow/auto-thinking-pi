@@ -1,0 +1,63 @@
+{
+	"name": "auto-thinking-pi",
+	"version": "0.0.1",
+	"description": "Pi coding-agent extension that classifies prompt difficulty with a local heuristic and sets the thinking/reasoning effort for the upcoming turn — no extra model call.",
+	"license": "MIT",
+	"type": "module",
+	"private": true,
+	"keywords": [
+		"pi",
+		"pi-coding-agent",
+		"pi-extension",
+		"thinking-level",
+		"reasoning-effort",
+		"prompt-classification",
+		"heuristic"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/acoyfellow/auto-thinking-pi.git"
+	},
+	"bugs": {
+		"url": "https://github.com/acoyfellow/auto-thinking-pi/issues"
+	},
+	"homepage": "https://github.com/acoyfellow/auto-thinking-pi#readme",
+	"files": ["src", "extensions", "README.md", "LICENSE", "CHANGELOG.md"],
+	"exports": {
+		".": "./src/heuristic.ts",
+		"./heuristic": "./src/heuristic.ts",
+		"./extension": "./extensions/pi/index.ts"
+	},
+	"scripts": {
+		"format": "biome format --write .",
+		"lint": "biome lint .",
+		"typecheck": "tsc --noEmit",
+		"test": "bun test",
+		"check": "biome check . && tsc --noEmit && bun test"
+	},
+	"pi": {
+		"extensions": ["./extensions/pi/index.ts"]
+	},
+	"peerDependencies": {
+		"@earendil-works/pi-agent-core": ">=0.60.0 <1.0.0",
+		"@earendil-works/pi-coding-agent": ">=0.60.0 <1.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@earendil-works/pi-agent-core": {
+			"optional": false
+		},
+		"@earendil-works/pi-coding-agent": {
+			"optional": false
+		}
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@earendil-works/pi-agent-core": "^0.80.0",
+		"@earendil-works/pi-coding-agent": "^0.80.0",
+		"@types/bun": "^1.1.14",
+		"typescript": "^5.6.3"
+	},
+	"engines": {
+		"bun": ">=1.1.0"
+	}
+}
