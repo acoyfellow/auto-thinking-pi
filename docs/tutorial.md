@@ -5,7 +5,7 @@ suite, loading the extension into a running Pi coding-agent, and confirming
 that classification is applied to your prompts. If you follow every step, you
 will end up with a working local install and a visible decision log in Pi.
 
-This is a learning-oriented walkthrough. For task-focused instructions see
+For recipes on toggling, inspecting, and tuning the classifier see
 [`how-to.md`](./how-to.md); for the API surface see [`reference.md`](./reference.md);
 for the rationale behind the design see [`design.md`](./design.md).
 

@@ -1,10 +1,9 @@
 # Design and rationale
 
-Understanding-oriented explanation of why `auto-thinking-pi` is shaped the
-way it is. This document is not a spec; for that see
-[`reference.md`](./reference.md). It documents the trade-offs and error
-modes so future contributors can change the classifier without reintroducing
-regressions the current tests already prevent.
+Why `auto-thinking-pi` is shaped the way it is. This document is not a
+spec; for that see [`reference.md`](./reference.md). It documents the
+trade-offs and error modes so future contributors can change the classifier
+without reintroducing regressions the current tests already prevent.
 
 ## Problem
 

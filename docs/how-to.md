@@ -1,7 +1,8 @@
 # How-to guides
 
-Task-focused recipes. Each section assumes you have completed
-[`tutorial.md`](./tutorial.md) and can run `bun run check` green.
+Recipes for using and tuning `auto-thinking-pi`. Each section assumes you
+have completed [`tutorial.md`](./tutorial.md) and can run `bun run check`
+green.
 
 ## Toggle the classifier at runtime
 

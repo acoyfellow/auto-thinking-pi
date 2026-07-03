@@ -1,6 +1,7 @@
 # Reference
 
-Information-oriented description of the surfaces of `auto-thinking-pi`.
+Exact description of every surface of `auto-thinking-pi`: package layout,
+public API, scoring rules, extension surface, and test invariants.
 Everything here is checked against the source in `src/heuristic.ts`,
 `src/types.ts`, and `extensions/pi/index.ts`.
 

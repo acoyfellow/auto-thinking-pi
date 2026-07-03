@@ -16,23 +16,21 @@ this repo is not published to npm. Install by cloning or by git URL.
 
 ## Docs
 
-Documentation is split following the [Diátaxis](https://diataxis.fr) model:
-
 - [`docs/tutorial.md`](./docs/tutorial.md) — install the package and load the
   extension into Pi from scratch.
-- [`docs/how-to.md`](./docs/how-to.md) — task-oriented recipes (toggle,
-  inspect, tune, use outside Pi).
+- [`docs/how-to.md`](./docs/how-to.md) — recipes for toggling, inspecting,
+  tuning, and using the classifier outside Pi.
 - [`docs/reference.md`](./docs/reference.md) — exact API, scoring rules,
   extension surface, and measured labeled-set distributions.
 - [`docs/design.md`](./docs/design.md) — why the classifier is asymmetric,
-  what the held-out set exists to prevent, and the documented
+  what the held-out sets exist to prevent, and the documented
   safe-over-thinking cases.
 
 The sections below are a condensed overview of the same material.
 
 ---
 
-## Quick start (tutorial)
+## Get started
 
 Prerequisites: [Bun](https://bun.sh) ≥ 1.3, and a working Pi coding-agent install exposing the `@earendil-works/pi-coding-agent` extension host (currently tested against Pi `0.80.x`).
 
@@ -55,7 +53,7 @@ Once loaded, every user prompt is classified and its `thinking` level applied be
 
 ---
 
-## How-to guides
+## Use and tune it
 
 ### Toggle the classifier
 
@@ -95,7 +93,7 @@ Edit `src/heuristic.ts` and delete the block labelled `--- floor: a keyword-free
 
 ---
 
-## Reference
+## Scoring details
 
 ### Files
 
@@ -189,7 +187,7 @@ This is the anti-under-thinking backstop.
 
 ---
 
-## Explanation
+## Why it works / tradeoffs
 
 ### Why heuristics, not a model call
 
